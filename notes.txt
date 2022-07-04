@@ -1,2 +1,35 @@
 https://www.digitalocean.com/community/tutorials/how-to-share-state-across-react-components-with-context
 
+One of the big differences between context and other state management solutions such as Redux is
+that context is not intended to be a central store. You can use it multiple times throughout an
+application and initiate it at the root level or deep in a component tree. In other words, you
+can spread your contexts throughout the application, creating focused data collections without
+worrying about conflicts.
+
+To keep context focused, create Providers that wrap the nearest shared parent when possible.
+In this case, that means, rather than adding another context in App, you will add the context
+in the SaladMaker component.
+
+Before you add the Provider think about the data that you want to share. You’ll need an array of
+items and a function for adding the items. Unlike other centralized state management tools, context
+does not handle updates to your data. It merely holds the data for use later. To update data, you’ll
+need to use other state management tools such as Hooks. If you were collecting data for the same
+component, you’d use either the useState or useReducer Hooks. If you are new to these Hooks, check
+out How To Manage State with Hooks on React Components:
+https://www.digitalocean.com/community/tutorials/how-to-manage-state-with-hooks-on-react-components
+
+Object destructuring
+let user = {"name": "alex", "phone":"111-222-3333"};
+let { name } = user;
+console.log(name) prints 'alex'
+
+https://devtrium.com/posts/how-to-use-react-usereducer-hook
+Managing state in React is one of the main issues you'll be facing while developing React websites. useState is of course the most common way to create and manage state in (functional) React components.
+
+There's also a lot of libraries offering opinionated ways to manage your entire (or part of) state, like Redux, Mobx, Recoil or XState.
+
+But before jumping to a library to help you manage your state issues, you should be aware of another
+native way to manage your state in React: useReducer. It can be very powerful when used in the right
+way and for the right purpose. In fact, it's so powerful that the famous Redux library can be thought
+of as just a big, optimized useReducer (as we'll see).
+
