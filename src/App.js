@@ -1,24 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import Navigation from './components/Navigation/Navigation';
+import SaladMaker from './components/SaladMaker/SaladMaker';
+import UserContext from './components/User/User';
+
+// In a typical application, you would fetch the user data or have it stored during a server-side render.
+const user = {
+  name: 'Kwame',
+  favorites: [
+    'avocado',
+    'carrot'
+  ]
+}
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <UserContext.Provider value={user}>
+      <Navigation />
+      <SaladMaker />
+    </UserContext.Provider>
   );
 }
 
